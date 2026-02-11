@@ -1,0 +1,195 @@
+/* Animations for UI elements and page interactions */
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Apply animations to elements */
+.site-header {
+  animation: slideDown 600ms ease;
+}
+
+.hero-copy {
+  animation: slideInLeft 800ms ease;
+}
+
+.hero-visual {
+  animation: slideInRight 800ms ease;
+}
+
+/* Scroll-triggered reveal animation class */
+.fade-in {
+  animation: fadeIn 800ms ease;
+}
+
+/* Button hover effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 300ms ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Card animations */
+.project-card {
+  animation: slideUp 600ms ease forwards;
+  opacity: 0;
+}
+
+.project-card:nth-child(1) { animation-delay: 100ms; }
+.project-card:nth-child(2) { animation-delay: 200ms; }
+.project-card:nth-child(3) { animation-delay: 300ms; }
+.project-card:nth-child(4) { animation-delay: 400ms; }
+.project-card:nth-child(5) { animation-delay: 500ms; }
+
+/* Skill bar fill animation */
+.bar .fill {
+  animation: none;
+}
+
+.bar .fill.animate {
+  animation: slideInLeft 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Chart animations */
+.viz-card {
+  animation: scaleIn 600ms ease;
+}
+
+.viz-card:nth-child(1) { animation-delay: 100ms; }
+.viz-card:nth-child(2) { animation-delay: 200ms; }
+.viz-card:nth-child(3) { animation-delay: 300ms; }
+.viz-card:nth-child(4) { animation-delay: 400ms; }
+
+/* Modal animations */
+.modal-overlay {
+  animation: fadeIn 200ms ease;
+}
+
+.modal-content {
+  animation: scaleIn 300ms ease cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Form input focus effects */
+input:focus,
+textarea:focus {
+  animation: none;
+}
+
+/* Stagger animations for lists */
+.skill-row {
+  animation: slideUp 600ms ease forwards;
+  opacity: 0;
+}
+
+.skill-row:nth-child(1) { animation-delay: 100ms; }
+.skill-row:nth-child(2) { animation-delay: 200ms; }
+.skill-row:nth-child(3) { animation-delay: 300ms; }
+.skill-row:nth-child(4) { animation-delay: 400ms; }
+.skill-row:nth-child(5) { animation-delay: 500ms; }
+
+/* Print-friendly styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .filters,
+  #theme-toggle,
+  .hero-cta,
+  #contact {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: blue;
+    text-decoration: underline;
+  }
+}
